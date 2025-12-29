@@ -205,6 +205,10 @@ function updateScore() {
 window.addEventListener('keydown', (event) => {
   if (gameOver) return;
 
+  // Prevent browser scrolling for game keys
+  if ([32, 37, 38, 39, 40].includes(event.keyCode)) {
+    event.preventDefault();
+  }
   if (event.keyCode === 38) { // Up Arrow
     playerRotate(-1); // Counter-Clockwise
   }
